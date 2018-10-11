@@ -11,20 +11,23 @@ let vector = {
     },
 
     setX: function(value) {
-        this.y = value
+        this._x = value
     },
 
     getX: function() {
         return this._x;
     },
 
-    getY: function(value) {
+    setY: function(value) {
         this._y = value
     },
 
-    setY: function(value) {
-        this._x = value
+    getY: function() {
+        return this._y;
+        
     },
+
+
 
     setAngle: function(angle) {
         let length = this.getLength()
@@ -44,6 +47,22 @@ let vector = {
 
     getLength: function() {
         return Math.sqrt(this._x * this._x + this._y * this._y)
+    },
+
+    add: function(v2) {
+        return vector.create(this._x + v2.getX(), this._y + v2.getY())
+    },
+
+    subtract: function(v2) {
+        return vector.create(this._x - v2.getX(), this._y - v2.getY())
+    },
+
+    multiply: function(val) {
+        return vector.create(this._x * val, this._y * val)
+    },
+
+    divide: function(val) {
+        return vector.create(this._x / val, this._y / val)
     }
 
 }
